@@ -3,6 +3,9 @@
 Localization of a mobile robot in ROS using Adaptive Monte Carlo Localization.
 This project is part of Udacity Robotics Software Engineer Nanodegree.
 
+<a href="https://www.youtube.com/watch?v=XO9q-1EyGBc" target="_blank">
+<img src="demo.gif" alt="circuit" width="500" height="281"/></a>
+
 ## Description
 The project consists of the following parts:
 1. A Gazebo world and a mobile robot from this [project](https://github.com/huuanhhuynguyen/RoboND-Go-Chase-It).
@@ -12,7 +15,7 @@ The project consists of the following parts:
 [pgm_map_creator](https://github.com/hyfan1116/pgm_map_creator) tool.
 
 ## Prequisites
-1. ROS (melodic/kinetic), Gazebo
+1. ROS (Melodic or Kinetic), Gazebo on Linux
 2. CMake & g++
 
 ## Setup, Build and Launch
