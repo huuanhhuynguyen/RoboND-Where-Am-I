@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ngh7rng/udacity_robotics/WhereAmI/src/my_robot/cmake-build-debug/devel/setup.sh
