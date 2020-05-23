@@ -25,44 +25,51 @@ $ cd catkin_ws/src
 $ catkin_init_workspace
 ```
 
-3. Within `catkin_ws/src`, clone the project and `ros-teleop` package
+3. Within `catkin_ws/src`, clone the project
 ```
-$ git clone https://github.com/huuanhhuynguyen/RoboND-Go-Chase-It.git
+$ git clone https://github.com/huuanhhuynguyen/RoboND-Where-Am-I.git
+$ cp -R RoboND-Where-Am-I/my_robot .
+$ rm -rf RoboND-Where-Am-I
+```
+
+4. Also within `catkin_ws/src`, clone the `teleop` project
+```
 $ git clone https://github.com/ros-teleop/teleop_twist_keyboard
 ```
 
-4. Install ROS packages required for this project
+5. Install ROS packages required for this project
 ```
 $ sudo apt-get install ros-${ROS_DISTRO}-map-server
 $ sudo apt-get install ros-${ROS_DISTRO}-amcl
 $ sudo apt-get install ros-${ROS_DISTRO}-move-base
 ```
 
-5. Move back to `catkin_ws\` and build
+6. Move back to `catkin_ws\` and build
 ```
 $ cd ..
 $ catkin_make
 ```
 
-6. Launch the world and robot
+7. Launch the world and robot
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot world.launch
 ```
 
-7. Open another terminal (Ctrl+Shift+T), and launch the `amcl.launch` file. Here,
+8. Open another terminal (Ctrl+Shift+T), and launch the `amcl.launch` file. Here,
 the map_server, amcl, and move_back packages will be launched.
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot amcl.launch
 ```
 
-8. Open another terminal, and run the `teleop` node.
+9. Open another terminal, and run the `teleop` node.
 ```
+$ source devel/setup.bash
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-9. Click on this terminal, type keyboard to navigate the robot around. The 
+10. Click on this terminal, type keyboard to navigate the robot around. The 
 localization algorithm will update particles as the robot pose is updated.
 
 10. Click on the Gazebo window and kidnap the robot to a random position in the
