@@ -15,64 +15,62 @@ The project consists of the following parts:
 [pgm_map_creator](https://github.com/hyfan1116/pgm_map_creator) tool.
 
 ## Prequisites
-1. ROS (Melodic or Kinetic), Gazebo on Linux
+1. ROS (Melodic/Kinetic), Gazebo on Linux
 2. CMake & g++
 
 ## Setup, Build and Launch
-1. Install Gazebo and ROS(melodic/kinetic) on Linux.
-
-2. Initialize a catkin workspace
+1. Initialize a catkin workspace
 ```
 $ mkdir -p catkin_ws/src
 $ cd catkin_ws/src
 $ catkin_init_workspace
 ```
 
-3. Within `catkin_ws/src`, clone the project
+2. Within `catkin_ws/src`, clone the project
 ```
 $ git clone https://github.com/huuanhhuynguyen/RoboND-Where-Am-I.git
 $ cp -R RoboND-Where-Am-I/my_robot .
 $ rm -rf RoboND-Where-Am-I
 ```
 
-4. Also within `catkin_ws/src`, clone the `teleop` project
+3. Also within `catkin_ws/src`, clone the `teleop` project
 ```
 $ git clone https://github.com/ros-teleop/teleop_twist_keyboard
 ```
 
-5. Install ROS packages required for this project
+4. Install ROS packages required for this project
 ```
 $ sudo apt-get install ros-${ROS_DISTRO}-map-server
 $ sudo apt-get install ros-${ROS_DISTRO}-amcl
 $ sudo apt-get install ros-${ROS_DISTRO}-move-base
 ```
 
-6. Move back to `catkin_ws\` and build
+5. Move back to `catkin_ws\` and build
 ```
 $ cd ..
 $ catkin_make
 ```
 
-7. Launch the world and robot
+6. Launch the world and robot
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot world.launch
 ```
 
-8. Open another terminal (Ctrl+Shift+T), and launch the `amcl.launch` file. Here,
+7. Open another terminal (Ctrl+Shift+T), and launch the `amcl.launch` file. Here,
 the map_server, amcl, and move_back packages will be launched.
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot amcl.launch
 ```
 
-9. Open another terminal, and run the `teleop` node.
+8. Open another terminal, and run the `teleop` node.
 ```
 $ source devel/setup.bash
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-10. Click on this terminal, type keyboard to navigate the robot around. The 
+9. Click on this terminal, type keyboard to navigate the robot around. The 
 localization algorithm will update particles as the robot pose is updated.
 
 10. Click on the Gazebo window and kidnap the robot to a random position in the
