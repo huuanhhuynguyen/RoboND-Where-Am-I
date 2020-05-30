@@ -40,6 +40,7 @@ $ git clone https://github.com/ros-teleop/teleop_twist_keyboard
 
 4. Install ROS packages required for this project
 ```
+$ sudo apt-get update && apt-get upgrade -y
 $ sudo apt-get install ros-${ROS_DISTRO}-map-server
 $ sudo apt-get install ros-${ROS_DISTRO}-amcl
 $ sudo apt-get install ros-${ROS_DISTRO}-move-base
