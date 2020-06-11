@@ -17,28 +17,7 @@ The project consists of the following parts:
 ## Prequisites
 1. ROS (Melodic/Kinetic), Gazebo on Linux
 2. CMake & g++
-
-## Setup, Build and Launch
-1. Initialize a catkin workspace
-```
-$ mkdir -p catkin_ws/src
-$ cd catkin_ws/src
-$ catkin_init_workspace
-```
-
-2. Within `catkin_ws/src`, clone the project
-```
-$ git clone https://github.com/huuanhhuynguyen/RoboND-Where-Am-I.git
-$ cp -R RoboND-Where-Am-I/my_robot .
-$ rm -rf RoboND-Where-Am-I
-```
-
-3. Also within `catkin_ws/src`, clone the `teleop` project
-```
-$ git clone https://github.com/ros-teleop/teleop_twist_keyboard
-```
-
-4. Install ROS packages required for this project
+3. Install dependencies
 ```
 $ sudo apt-get update && sudo apt-get upgrade -y
 $ sudo apt-get install ros-${ROS_DISTRO}-map-server
@@ -46,35 +25,49 @@ $ sudo apt-get install ros-${ROS_DISTRO}-amcl
 $ sudo apt-get install ros-${ROS_DISTRO}-move-base
 ```
 
-5. Move back to `catkin_ws\` and build
+## Setup, Build and Launch
+1. Clone project and initialize catkin workspace
+```
+$ mkdir catkin_ws && cd catkin_ws
+$ git clone https://github.com/huuanhhuynguyen/RoboND-Where-Am-I.git
+$ mv RoboND-Where-Am-I src
+$ cd src && catkin_init_workspace
+```
+
+2. Also within `catkin_ws/src`, clone the `teleop` package
+```
+$ git clone https://github.com/ros-teleop/teleop_twist_keyboard
+```
+
+3. Move back to `catkin_ws\` and build
 ```
 $ cd ..
 $ catkin_make
 ```
 
-6. Launch the world and robot
+4. Launch the world and robot
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot world.launch
 ```
 
-7. Open another terminal (Ctrl+Shift+T), and launch the `amcl.launch` file. Here,
+5. Open another terminal (Ctrl+Shift+T), and launch the `amcl.launch` file. Here,
 the map_server, amcl, and move_back packages will be launched.
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot amcl.launch
 ```
 
-8. Open another terminal, and run the `teleop` node.
+6. Open another terminal, and run the `teleop` node.
 ```
 $ source devel/setup.bash
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-9. Click on this terminal, type keyboard to navigate the robot around. The 
+7. Click on this terminal, type keyboard to navigate the robot around. The 
 localization algorithm will update particles as the robot pose is updated.
 
-10. Click on the Gazebo window and kidnap the robot to a random position in the
+8. Click on the Gazebo window and kidnap the robot to a random position in the
 house. Let the robot rotate for a while, it can quickly localize.
 
 **Note**: Since the map (pgm file) is not perfect, there will be cases where the robot 
